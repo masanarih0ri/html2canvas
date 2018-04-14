@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+		<h3>ここから</h3>
+		<div id="test">
+			<!-- ここから -->
+			<div>
+        <h1>請求書</h1>
+        <p>株式会社◯◯</p>
+      </div>
+			<!-- ここまで -->
+		</div>
+		<h3>ここまでを画像化するよ</h3>
+
+    <div id="btn" style="color:red;font-size:24px;">クリックすると画像がでます。</div>
+
+		<h3>ここから画像だよ</h3>
+		<div id="reult"><img src="" /></div>
+		<h3>ここまでを画像だよ</h3>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+		<script>
+			$(function() {
+        $('#btn').click(function(){
+          html2canvas($('#test'), { onrendered: function(canvas) {
+  					var imgData = canvas.toDataURL();
+  					$('#reult img')[0].src = imgData;
+  				}});
+        });
+			});
+		</script>
+	</body>
+</html>
